@@ -7,6 +7,7 @@ const morgan = require('morgan');
 
 const authRoutes = require('./routes/authRoutes');
 const portfolioRoutes = require('./routes/portfolioRoutes');
+const resumeRoutes = require('./routes/resumeRoutes');
 const { errorHandler } = require('./middleware/error');
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(morgan('dev'));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/portfolio', portfolioRoutes);
+app.use('/api/resume', resumeRoutes);
 
 // Error Handler
 app.use(errorHandler);

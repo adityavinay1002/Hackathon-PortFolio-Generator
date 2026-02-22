@@ -3,6 +3,8 @@ import Home from './pages/Home'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import PublicPortfolio from './pages/PublicPortfolio'
+import SelectModePage from './pages/SelectModePage'
+import ResumeImportPage from './pages/ResumeImportPage'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import { PortfolioProvider } from './context/PortfolioContext'
 
@@ -26,6 +28,22 @@ function App() {
                             element={
                                 <ProtectedRoute>
                                     <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/select-mode"
+                            element={
+                                <ProtectedRoute>
+                                    <SelectModePage />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/import-resume"
+                            element={
+                                <ProtectedRoute>
+                                    <ResumeImportPage />
                                 </ProtectedRoute>
                             }
                         />

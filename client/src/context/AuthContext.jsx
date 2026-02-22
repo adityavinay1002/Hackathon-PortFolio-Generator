@@ -31,7 +31,7 @@ export const AuthProvider = ({ children }) => {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             setUser(user);
             toast.success('Login successful!');
-            navigate('/dashboard');
+            navigate('/select-mode');
         } catch (err) {
             toast.error(err.response?.data?.message || 'Login failed');
         }
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
             axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
             setUser(user);
             toast.success('Account created!');
-            navigate('/dashboard');
+            navigate('/select-mode');
         } catch (err) {
             toast.error(err.response?.data?.message || 'Registration failed');
         }

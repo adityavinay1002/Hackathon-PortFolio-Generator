@@ -47,7 +47,7 @@ const PublicPortfolio = () => {
     );
 
     return (
-        <div className="min-h-screen bg-[#0b0e14]">
+        <div className="min-h-screen">
             {/* Floating Action Bar (Visible for viewers) */}
             <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[60] dark-glass px-6 py-3 rounded-2xl flex items-center gap-6 shadow-2xl">
                 <Link to="/" className="text-gray-400 hover:text-white transition-colors">
