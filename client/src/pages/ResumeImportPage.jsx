@@ -59,25 +59,25 @@ const ResumeImportPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#0b0e14] flex flex-col items-center justify-center px-4 py-12">
+        <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-4 py-12">
             <div className="max-w-2xl w-full">
                 <button
                     onClick={() => navigate('/select-mode')}
-                    className="flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-all group"
+                    className="flex items-center gap-2 text-gray-500 hover:text-gray-900 mb-8 transition-all group"
                 >
                     <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-all" />
                     <span>Back to selection</span>
                 </button>
 
-                <div className="bg-slate-800/20 border border-white/5 rounded-[40px] p-8 md:p-12">
+                <div className="bg-white border border-gray-100 shadow-xl rounded-[40px] p-8 md:p-12">
                     <div className="text-center mb-10">
-                        <div className="w-20 h-20 rounded-3xl bg-blue-600/10 flex items-center justify-center text-blue-400 mx-auto mb-6 border border-blue-500/20">
+                        <div className="w-20 h-20 rounded-3xl bg-blue-600/10 flex items-center justify-center text-blue-600 mx-auto mb-6 border border-blue-500/20">
                             <Wand2 size={40} />
                         </div>
-                        <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 font-outfit">
-                            Import your <span className="text-blue-500">Resume</span>
+                        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 font-outfit">
+                            Import your <span className="text-blue-600">Resume</span>
                         </h1>
-                        <p className="text-gray-400 max-w-md mx-auto">
+                        <p className="text-gray-600 max-w-md mx-auto">
                             Upload your resume and our AI-powered parser will automatically extract your info.
                         </p>
                     </div>
@@ -94,7 +94,7 @@ const ResumeImportPage = () => {
                             disabled={!file || loading}
                             className={`w-full py-4 rounded-2xl flex items-center justify-center gap-3 font-bold text-lg transition-all
                                 ${!file || loading
-                                    ? 'bg-slate-800 text-gray-500 cursor-not-allowed border border-white/5'
+                                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed border border-gray-200'
                                     : 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:opacity-90 shadow-lg shadow-blue-600/20'}`}
                         >
                             {loading ? (

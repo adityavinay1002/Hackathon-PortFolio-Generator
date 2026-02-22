@@ -4,14 +4,20 @@ import Navbar from '../components/Navbar';
 import { Input, TextArea } from '../components/Input';
 import { Button } from '../components/Button';
 import PortfolioPreview from '../components/PortfolioPreview';
-import { Plus, Trash2, Save, Share, Check } from 'lucide-react';
+import Modal from '../components/Modal';
+import { Plus, Trash2, Save, Share, Check, RotateCcw } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 
 const Dashboard = () => {
-    const { portfolio, loading, updatePortfolio, setLocalPortfolio } = usePortfolio();
+    const { portfolio, loading, updatePortfolio, setLocalPortfolio, clearPortfolio } = usePortfolio();
     const [activeTab, setActiveTab] = useState('profile');
     const [formData, setFormData] = useState(null);
     const [isCopied, setIsCopied] = useState(false);
+    const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+
+    const handleReset = () => {
+        setIsResetModalOpen(true);
+    };
 
     useEffect(() => {
         if (portfolio) {
@@ -81,6 +87,13 @@ const Dashboard = () => {
                             <p className="text-xs text-gray-500">Changes reflect instantly in the preview</p>
                         </div>
                         <div className="flex gap-2">
+                            <button
+                                onClick={handleReset}
+                                className="p-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors text-gray-500 hover:text-red-500"
+                                title="Reset Portfolio"
+                            >
+                                <RotateCcw size={18} />
+                            </button>
                             <button
                                 onClick={copyLink}
                                 className="p-2.5 rounded-xl border border-gray-200 hover:bg-gray-50 transition-colors text-gray-600"
@@ -344,6 +357,16 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+
+            <Modal
+                isOpen={isResetModalOpen}
+                onClose={() => setIsResetModalOpen(false)}
+                onConfirm={clearPortfolio}
+                title="Reset Portfolio"
+                message="Are you sure you want to clear all fields? This will reset everything to blank and cannot be undone."
+                confirmText="Reset Now"
+                type="danger"
+            />
         </div>
     );
 };

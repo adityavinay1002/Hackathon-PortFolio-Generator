@@ -48,8 +48,22 @@ export const PortfolioProvider = ({ children }) => {
         setPortfolio(newData);
     };
 
+    const clearPortfolio = () => {
+        const emptyPortfolio = {
+            profile: { fullName: '', email: user?.email || '', phone: '', title: '', location: '', bio: '' },
+            socialLinks: { github: '', linkedin: '', twitter: '', instagram: '', website: '' },
+            skills: [],
+            projects: [],
+            specializations: [
+                { title: '', description: '', icon: 'java' }
+            ]
+        };
+        setPortfolio(emptyPortfolio);
+        toast.success('Fields cleared! Start building your portfolio.');
+    };
+
     return (
-        <PortfolioContext.Provider value={{ portfolio, loading, updatePortfolio, setLocalPortfolio, fetchPortfolio }}>
+        <PortfolioContext.Provider value={{ portfolio, loading, updatePortfolio, setLocalPortfolio, fetchPortfolio, clearPortfolio }}>
             {children}
         </PortfolioContext.Provider>
     );
